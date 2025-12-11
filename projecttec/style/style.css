@@ -1,0 +1,124 @@
+body {
+	background-color: #ffdff2 ;
+}
+li{
+	display:inline;
+	}
+Ul{
+	background-color:rgb(231,133,170);
+	border-radius:25px;
+}
+a:hover{
+	background-color:#ffffff;
+	}
+a{
+	color:#6a0040; text-decoration:none;
+	}
+	
+#hed{
+    background-color: #ffffff;
+    text-align:center;
+    padding:20px;
+    border-radius:25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	color:#6a0040;
+}
+#logo{
+width:250px;
+}
+.background{
+	text-align:center;
+	color:#6a0040;
+}
+.bigdiv{
+    background-color:#ffffff ;
+	border-radius:20px;
+	padding:20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;          
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+.box {
+	float : center;
+	max-width: 500px;
+	padding-top: 5px;
+	border: solid #ffdff2;
+	border-radius:25px;
+	background-color:#ffdff2;
+    color:#6a0040;
+    margin-bottom: 20px;          
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	flex: 1 1 250px;
+	text-align:center;
+    	
+}
+
+@media(max-width:600px){
+	.box{width:90%}
+}
+@media(max-width:900px){
+	.box{width:45%}
+}
+.img{
+    width:75%;
+    padding:10px;
+    object-fit:cover;
+	float : center;
+}
+#footer{
+	background-color:#ffffff;
+    color:#6a0040;
+	border-radius:20px;
+    padding:10px;
+    margin-top: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+}
+.form{
+	background-color:#ffffff;
+    color:#6a0040;
+	border-radius:20px;
+    padding:10px;
+    margin-top: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+}
+
+input[type="text"],
+input[type="email"],
+
+textarea,
+select {
+  width: 100%;             
+  padding: 10px;            
+  margin-top: 5px;
+  border: 1px solid #6a0040;    
+  border-radius: 8px;       
+  box-sizing: border-box;    
+  font-size: 20px;
+  background-color: #fffafa; 
+ 
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #ffb6c1;    
+  box-shadow: 0 0 6px rgba(255, 182, 193, 0.5); 
+  outline: none;
+}
+#footer2{
+	background-color:rgb(231,133,170);
+    color:#6a0040;
+	border-radius:20px;
+    padding:10px;
+    margin-top: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+}
