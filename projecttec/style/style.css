@@ -79,17 +79,7 @@ width:250px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	text-align:center;
 }
-#hed2{
-    background-color: #ffffff;
-    text-align:center;
-    padding:20px;
-    border-radius:25px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	color:#6a0040;
-	background-image:url("../extra/STree/sakura2.png");
-	background-repeat:no-repeat;
-	background-position:0px 7px;
-}
+
 .form{
 	background-color:#ffffff;
     color:#6a0040;
