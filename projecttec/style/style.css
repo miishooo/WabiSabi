@@ -156,8 +156,15 @@ select:focus {
 	font-weight:bold;
 	padding:10px;
 }
-table{
+table,th,td{
 	text-align:center;
+	background-color:#ffffff;
+    border:solid #6a0040 ;
+	border-collapse: collapse;
+}
+th{
+	background-color:#6a0040;
+	color:#ffffff;
 }
 .city{
 	padding:10px;
