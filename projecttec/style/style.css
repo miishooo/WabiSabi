@@ -151,3 +151,15 @@ select:focus {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	text-align:center;
 }
+.capp{
+	font-size:20px;
+	font-weight:bold;
+	padding:10px;
+}
+table{
+	text-align:center;
+}
+.city{
+	padding:10px;
+	
+}
