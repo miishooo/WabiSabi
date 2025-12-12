@@ -201,6 +201,22 @@ body[data-theme="dark"] button {
   background-color: #ff8ebf !important;
   color: #ffffff !important;
 }
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 240, 246, 0.95);
+  z-index: 9999;
+}
+
+#backBox {
+  position: absolute;
+  padding: 20px;
+  background-color: #fff0f6;
+  border: 2px dashed #ff8ebf;
+  border-radius: 15px;
+  text-align: center;
+}
 
 
 =======

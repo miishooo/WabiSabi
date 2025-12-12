@@ -1,61 +1,91 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   initTheme();
-  if (document.body.classList.contains("home")) initHome();
+
+  if (document.body.classList.contains("home")) {
+    initHome();
+    showWelcomeAlert();
+  }
+
   if (document.body.classList.contains("destinations")) initDestinations();
   if (document.body.classList.contains("contact")) initContact();
 });
 
 function initHome() {
-  var btn = document.getElementById("ctaBtn");
   var box = document.getElementById("welcomeBox");
+  if (!box) return;
 
-  if (!btn || !box) return;
+  box.innerHTML = "<p>🎉 Welcome! Get ready to explore amazing destinations.</p>";
+}
+function showWelcomeAlert() {
+  var overlay = document.getElementById("overlay");
+  var box = document.getElementById("backBox");
+  var btn = document.getElementById("backBtn");
 
-  box.innerHTML = "<p>🎉 أهلاً بك! استعد لاكتشاف أفضل الوجهات السياحية</p>";
+  if (!overlay || !box || !btn) return;
 
-  btn.addEventListener("click", function () {
-    window.location.href = "pages/destinations.html";
-  });
+  var enter = confirm(
+    "🎉 Welcome to our project!\n\nClick OK to enter and explore."
+  );
+
+  if (enter) {
+    overlay.style.display = "none";
+    box.onmouseenter = null;
+  } else {
+    overlay.style.display = "block";
+    moveBoxRandom(box);
+
+    box.onmouseenter = function () {
+      moveBoxRandom(box);
+    };
+    btn.onclick = function () {
+      overlay.style.display = "none";
+      box.onmouseenter = null; 
+    };
+  }
 }
 
-function initDestinations() {
+function moveBoxRandom(box) {
+  var maxX = window.innerWidth - box.offsetWidth;
+  var maxY = window.innerHeight - box.offsetHeight;
+
+  var x = Math.random() * maxX;
+  var y = Math.random() * maxY;
+
+  box.style.left = x + "px";
+  box.style.top = y + "px";
 }
+
+function initDestinations() {}
 
 function initContact() {
   var form = document.getElementById("contactForm");
   var msgBox = document.getElementById("formMsg");
-
   if (!form || !msgBox) return;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var nameEl = document.getElementById("name");
-    var emailEl = document.getElementById("email");
-    var subjectEl = document.getElementById("subject");
-    var commentEl = document.getElementById("comment");
-
-    var name = nameEl ? nameEl.value.trim() : "";
-    var email = emailEl ? emailEl.value.trim() : "";
-    var subject = subjectEl ? subjectEl.value : "";
-    var comment = commentEl ? commentEl.value.trim() : "";
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var subject = document.getElementById("subject").value;
+    var comment = document.getElementById("comment").value.trim();
 
     var errors = [];
 
-    if (name === "") errors.push("الاسم مطلوب");
-    if (email === "") errors.push("الإيميل مطلوب");
-    if (email && !isValidEmail(email)) errors.push("صيغة الإيميل غير صحيحة");
-    if (subject === "") errors.push("اختاري الموضوع");
-    if (comment === "") errors.push("التعليق مطلوب");
-    if (comment.length > 0 && comment.length < 10) errors.push("التعليق لازم يكون 10 أحرف أو أكثر");
+    if (!name) errors.push("Name is required");
+    if (!email) errors.push("Email is required");
+    if (email && !isValidEmail(email)) errors.push("Invalid email format");
+    if (!subject) errors.push("Please select a subject");
+    if (!comment) errors.push("Comment is required");
+    if (comment && comment.length < 10)
+      errors.push("Comment must be at least 10 characters");
 
     if (errors.length > 0) {
       msgBox.innerHTML = "<ul><li>" + errors.join("</li><li>") + "</li></ul>";
       return;
     }
 
-    msgBox.innerHTML = "<p>✅ تم إرسال التعليق بنجاح</p>";
+    msgBox.innerHTML = "<p>✅ Comment sent successfully</p>";
     form.reset();
   });
 }
