@@ -14,7 +14,7 @@ function initHome() {
   var box = document.getElementById("welcomeBox");
   if (!box) return;
 
-  box.innerHTML = "<p>🎉 Welcome! Get ready to explore amazing destinations.</p>";
+
 }
 function showWelcomeAlert() {
   var overlay = document.getElementById("overlay");
