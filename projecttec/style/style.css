@@ -155,12 +155,14 @@ select:focus {
 	font-size:20px;
 	font-weight:bold;
 	padding:10px;
+	color:#6a0040;
 }
 table,th,td{
 	text-align:center;
 	background-color:#ffffff;
     border:solid #6a0040 ;
 	border-collapse: collapse;
+	color:#6a0040;
 }
 th{
 	background-color:#6a0040;
