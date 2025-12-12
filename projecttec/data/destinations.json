@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Tokyo Tower",
+    "type": "Tourism",
+    "desc": "A famous landmark in Tokyo.",
+    "image":"https://github.com/username/repository-name/blob/main/images/tokyo_tower.jpg?raw=true"
+"
+  },
+  {
+    "name": "Mount Fuji",
+    "type": "Tourism",
+    "desc": "The most iconic mountain in Japan.",
+    "image": "images/mount_fuji.jpg"
+  },
+  {
+    "name": "Shibuya Crossing",
+    "type": "Tourism",
+    "desc": "The busiest crossing in the world.",
+    "image": "images/shibuya.jpg"
+  },
+  {
+    "name": "Senso-ji Temple",
+    "type": "Heritage",
+    "desc": "One of Tokyo’s oldest temples.",
+    "image": "images/sensoji.jpg"
+  },
+  {
+    "name": "Fushimi Inari Shrine",
+    "type": "Heritage",
+    "desc": "Famous for its thousands of red gates.",
+    "image": "images/fushimi_inari.jpg"
+  },
+  {
+    "name": "Osaka Castle",
+    "type": "Heritage",
+    "desc": "A historic Japanese castle.",
+    "image": "images/osaka_castle.jpg"
+  },
+  {
+    "name": "Universal Studios Japan",
+    "type": "Entertainment",
+    "desc": "A major theme park in Osaka.",
+    "image": "images/universal.jpg"
+  },
+  {
+    "name": "Tokyo Disneyland",
+    "type": "Entertainment",
+    "desc": "A magical theme park in Tokyo.",
+    "image": "images/disneyland.jpg"
+  },
+  {
+    "name": "Ichiran Ramen",
+    "type": "Food",
+    "desc": "The most famous ramen restaurant in Japan.",
+    "image": "images/ichiran.jpg"
+  },
+  {
+    "name": "Sushi Zanmai",
+    "type": "Food",
+    "desc": "A popular sushi chain.",
+    "image": "images/zanmai.jpg"
+  }
+]
