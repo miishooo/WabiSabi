@@ -55,12 +55,10 @@ width:250px;
 	border-radius:25px;
 	background-color:#F9E9F1;
     color:#6a0040;
-    margin-bottom: 20px;          
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+    margin-bottom: 20px;
 	flex: 1 1 250px;
 	text-align:center;
 	transition :transform 0.4s cubic-bezier(.25,.8,.25,1), 
-               /* box-shadow 0.4s cubic-bezier(.25,.8,.25,1);*/
     	
 }
 
@@ -79,7 +77,6 @@ width:250px;
 }
 .link:hover{
 	transform: translateY(-10px);
-	//*box-shadow: 0 10px 20px rgba(0,0,0,0.2);*//
 }
 .footer{
 	background-color:#ffffff;
