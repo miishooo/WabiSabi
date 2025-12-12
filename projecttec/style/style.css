@@ -283,10 +283,6 @@ th{
 	padding:10px;
 	
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ea2facb6177a14bd86b1594bb3ab8087f7cb7335
 body[data-theme="dark"] {
   background-color: #3b0a2a !important;
   color: #ffffff !important;
@@ -400,5 +396,3 @@ body[data-theme="dark"] th {
 body[data-theme="dark"] img {
   filter: brightness(0.85) contrast(1.05);
 }
-=======
->>>>>>> ea2facb6177a14bd86b1594bb3ab8087f7cb7335
