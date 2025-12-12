@@ -1,8 +1,10 @@
 body {
 	background-color: #F9E9F1 ;
+    font-family: 'Montserrat', sans-serif;
 }
 li{
 	display:inline;
+	margin: 0 20px;
 	}
 Ul{
 	background-color:rgb(231,133,170);
@@ -13,6 +15,8 @@ a:hover{
 	}
 a{
 	color:#6a0040; text-decoration:none;
+	font-weight: bold;
+    font-size: 15px;
 	}
 	
 #hed{
@@ -47,7 +51,7 @@ width:250px;
 	float : center;
 	max-width: 350px;
 	padding-top: 5px;
-	border: solid #ffdff2;
+	border: solid #F9E9F1;
 	border-radius:25px;
 	background-color:#F9E9F1;
     color:#6a0040;
