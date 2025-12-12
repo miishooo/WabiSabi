@@ -152,7 +152,7 @@ select:focus {
 	text-align:center;
 }
 .submit-btn{
-	/*text-align:center;*/
+	
 	padding: 10px 18px;
     background: #6a0040;
     color: #ffffff;
@@ -164,7 +164,7 @@ select:focus {
     gap: 8px;
     cursor: pointer;
    }
-   /* CSS بسيط (ضعه في css/style.css أو داخل <style> في الصفحة) */
+   
 .about-lists {
   max-width: 900px;
   margin: 20px auto;
@@ -176,31 +176,30 @@ select:focus {
 
 .about-lists h2 {
   margin: 14px 0 8px;
-  font-size: 1.15rem;
-  color: #0b3d91; /* لون عنوان بسيط */
+  font-size: 20px;
+  color: #6a0040; 
 }
 
-/* UL - Website features */
 .features {
-  list-style: none; /* نستخدم أيقونة مخصصة بدل النقاط الافتراضية */
+  list-style: none; 
   padding: 8px;
   margin: 0 0 20px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 5px;
   background-color:#6a0040;
 }
 
 .features li {
-  background: #f9f9f1;
+  background: #ffffff;
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid rgba(11,61,145,0.08);
   box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-  font-size: 0.95rem;
+  font-size: 15px;
 }
 
-/* small icon on the left using pseudo-element */
+
 .features li::before {
   content: "✓";
   display: inline-block;
@@ -209,13 +208,13 @@ select:focus {
   margin-right: 8px;
   text-align: center;
   line-height: 22px;
-  background: #0b3d91;
-  color: #fff;
+  background: rgb(231,133,170);
+  color: #ffffff;
   border-radius: 50%;
-  font-size: 0.8rem;
+  font-size: 15px;
 }
 
-/* OL - Itinerary description */
+
 .itinerary {
   margin: 0;
   padding-left: 0;
@@ -235,7 +234,7 @@ select:focus {
   font-size: 0.98rem;
 }
 
-/* numeric badge */
+
 .itinerary li::before {
   counter-increment: step-counter;
   content: counter(step-counter);
@@ -246,15 +245,15 @@ select:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #ffd166;
-  color: #222;
+  background:rgb(231,133,170);
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
 }
 
-/* small responsive tweak */
+
 @media (max-width: 520px) {
   .features {
     grid-template-columns: 1fr;
