@@ -155,14 +155,24 @@ select:focus {
 	font-size:20px;
 	font-weight:bold;
 	padding:10px;
+	color:#6a0040;
 }
-table{
+table,th,td{
 	text-align:center;
+	background-color:#ffffff;
+    border:solid #6a0040 ;
+	border-collapse: collapse;
+	color:#6a0040;
+}
+th{
+	background-color:#6a0040;
+	color:#ffffff;
 }
 .city{
 	padding:10px;
 	
 }
+<<<<<<< HEAD
 body[data-theme="dark"] {
   background-color: #3b0a2a !important;
   color: #ffffff !important;
@@ -181,3 +191,5 @@ body[data-theme="dark"] button {
 }
 
 
+=======
+>>>>>>> 0d48ccda315e2ddde57cb7765ad7760d17177993
