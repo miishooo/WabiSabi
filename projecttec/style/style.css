@@ -55,12 +55,10 @@ width:250px;
 	border-radius:25px;
 	background-color:#F9E9F1;
     color:#6a0040;
-    margin-bottom: 20px;          
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+    margin-bottom: 20px;
 	flex: 1 1 250px;
 	text-align:center;
 	transition :transform 0.4s cubic-bezier(.25,.8,.25,1), 
-               /* box-shadow 0.4s cubic-bezier(.25,.8,.25,1);*/
     	
 }
 
@@ -79,9 +77,8 @@ width:250px;
 }
 .link:hover{
 	transform: translateY(-10px);
-	//*box-shadow: 0 10px 20px rgba(0,0,0,0.2);*//
 }
-#footer{
+.footer{
 	background-color:#ffffff;
     color:#6a0040;
 	border-radius:20px;
@@ -90,7 +87,9 @@ width:250px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	text-align:center;
 }
-
+.footer a:hover {
+	background-color:rgb(231,133,170,0.3);
+}
 .divo{
 	background-color:#ffffff;
     color:#6a0040;
@@ -283,6 +282,7 @@ th{
 	padding:10px;
 	
 }
+
 body[data-theme="dark"] {
   background-color: #3b0a2a !important;
   color: #ffffff !important;
@@ -327,7 +327,7 @@ body[data-theme="dark"] a:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-<<<<<<< HEAD
+
 body[data-theme="dark"] ul,
 body[data-theme="dark"] Ul {
   background-color: #3b0a2a !important;
@@ -396,3 +396,4 @@ body[data-theme="dark"] th {
 body[data-theme="dark"] img {
   filter: brightness(0.85) contrast(1.05);
 }
+
