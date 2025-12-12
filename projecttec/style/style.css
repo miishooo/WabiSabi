@@ -283,7 +283,10 @@ th{
 	padding:10px;
 	
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> ea2facb6177a14bd86b1594bb3ab8087f7cb7335
 body[data-theme="dark"] {
   background-color: #3b0a2a !important;
   color: #ffffff !important;
@@ -316,5 +319,86 @@ body[data-theme="dark"] button {
   border-radius: 15px;
   text-align: center;
 }
+body[data-theme="dark"] {
+  background-color: #1a0010 !important;
+  color: #ffe6f1 !important;
+}
 
+body[data-theme="dark"] a {
+  color: #ffd0e4 !important;
+}
+body[data-theme="dark"] a:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
 
+<<<<<<< HEAD
+body[data-theme="dark"] ul,
+body[data-theme="dark"] Ul {
+  background-color: #3b0a2a !important;
+}
+body[data-theme="dark"] #hed,
+body[data-theme="dark"] .bigdiv,
+body[data-theme="dark"] #footer,
+body[data-theme="dark"] .divo,
+body[data-theme="dark"] .form {
+  background-color: #2b001a !important;
+  color: #ffe6f1 !important;
+  box-shadow: none !important;
+}
+
+body[data-theme="dark"] .background,
+body[data-theme="dark"] .capp {
+  color: #ffe6f1 !important;
+}
+
+body[data-theme="dark"] .box {
+  background-color: #3b0a2a !important;
+  border-color: rgba(255, 142, 191, 0.45) !important;
+  color: #ffe6f1 !important;
+}
+
+body[data-theme="dark"] input[type="text"],
+body[data-theme="dark"] input[type="email"],
+body[data-theme="dark"] textarea,
+body[data-theme="dark"] select {
+  background-color: #1f0013 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 142, 191, 0.6) !important;
+}
+
+body[data-theme="dark"] input:focus,
+body[data-theme="dark"] textarea:focus,
+body[data-theme="dark"] select:focus {
+  border-color: #ff8ebf !important;
+  box-shadow: 0 0 8px rgba(255, 142, 191, 0.45) !important;
+}
+body[data-theme="dark"] .submit-btn,
+body[data-theme="dark"] button,
+body[data-theme="dark"] input[type="submit"] {
+  background-color: #ff8ebf !important;
+  color: #1a0010 !important;
+}
+
+body[data-theme="dark"] #footer2 {
+  background-color: #3b0a2a !important;
+  color: #ffe6f1 !important;
+}
+
+body[data-theme="dark"] table,
+body[data-theme="dark"] th,
+body[data-theme="dark"] td {
+  background-color: #2b001a !important;
+  color: #ffe6f1 !important;
+  border-color: rgba(255, 142, 191, 0.55) !important;
+}
+
+body[data-theme="dark"] th {
+  background-color: #ff8ebf !important;
+  color: #1a0010 !important;
+}
+
+body[data-theme="dark"] img {
+  filter: brightness(0.85) contrast(1.05);
+}
+=======
+>>>>>>> ea2facb6177a14bd86b1594bb3ab8087f7cb7335
