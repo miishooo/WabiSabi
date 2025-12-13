@@ -1,15 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+  const error = document.getElementById("emailError");
+  const msg = document.getElementById("formMsg");
+
+  form.addEventListener("submit", function (e) {
+    const email1 = document.getElementById("email").value.trim();
+    const email2 = document.getElementById("confirmEmail").value.trim();
+    error.style.display = "none";
+    msg.innerHTML = "";
+	const name = document.getElementById("name").value.trim();
+const subject = document.getElementById("subject").value;
+const comment = document.getElementById("comment").value.trim();
+    if (email1 !== email2) {
+      e.preventDefault();
+      error.style.display = "inline";
+      return;
+    }
+	if (!name || !email1 || !email2 || !subject || !comment) {
+  return; 
+}
+    e.preventDefault(); 
+    msg.innerHTML =
+      "<p style='color:green;'>✅ Your form has been successfully submitted</p>";
+   setTimeout(() => {
+  msg.innerHTML = "";
+}, 3000);
+   form.reset();
+  });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
   initTheme();
   initScrollTop();
   initWelcomeBack();
+initWcCard();
+initLocalTime();
+initLocalTime1();
+
 
   if (document.body.classList.contains("home")) {
     initHome();
     showWelcomeAlert();
-	initWeather();
+	
 initDeviceAndJapanTime();
 
-  }
+{}}
 
   if (document.body.classList.contains("destinations")) initDestinations();
   if (document.body.classList.contains("contact")) initContact();
@@ -153,48 +190,119 @@ function initWelcomeBack() {
     console.log("Welcome back 💗");
   }
 }
-function initWeather() {
-  var box = document.getElementById("weatherBox");
-  if (!box) return;
+function initWcCard() {
+  initSaudiJapanClockBlock();
+  initWcWeather();
+}
+
+function initSaudiJapanClockBlock() {
+  var saEl = document.getElementById("timeSA");
+  var jpEl = document.getElementById("japanTime");
+
+  var hHand = document.getElementById("japanHour");
+  var mHand = document.getElementById("japanMinute");
+  var sHand = document.getElementById("japanSecond");
+
+  if (!saEl || !jpEl) return;
+
+  function pad(n){ return String(n).padStart(2,"0"); }
+
+  function update() {
+    var now = new Date();
+
+    saEl.textContent =
+      pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
+
+    // Japan text (24h)
+    jpEl.textContent = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Tokyo",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    }).format(now);
+
+    // Japan analog
+    if (hHand && mHand && sHand) {
+      var parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Tokyo",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }).formatToParts(now);
+
+      var H = Number(parts.find(p => p.type === "hour").value);
+      var M = Number(parts.find(p => p.type === "minute").value);
+      var S = Number(parts.find(p => p.type === "second").value);
+
+      hHand.style.transform = "translateX(-50%) rotate(" + ((H%12)*30 + M*0.5) + "deg)";
+      mHand.style.transform = "translateX(-50%) rotate(" + (M*6 + S*0.1) + "deg)";
+      sHand.style.transform = "translateX(-50%) rotate(" + (S*6) + "deg)";
+    }
+  }
+
+  update();
+  setInterval(update, 1000);
+}
+
+function initWcWeather() {
+  fetchWeather(24.7136, 46.6753, "weatherSA"); 
+  fetchWeather(35.6895, 139.6917, "weatherJP"); 
+
+  setInterval(function () {
+    fetchWeather(24.7136, 46.6753, "weatherSA");
+    fetchWeather(35.6895, 139.6917, "weatherJP");
+  }, 10 * 60 * 1000);
+}
+
+function fetchWeather(lat, lon, elementId) {
+  var el = document.getElementById(elementId);
+  if (!el) return;
 
   var url =
-    "https://api.open-meteo.com/v1/forecast?latitude=35.6895&longitude=139.6917&current_weather=true";
+    "https://api.open-meteo.com/v1/forecast?latitude=" +
+    lat + "&longitude=" + lon + "&current_weather=true";
 
   fetch(url)
-    .then(function (res) {
-      return res.json();
-    })
+    .then(function (res) { return res.json(); })
     .then(function (data) {
-      var temp = data.current_weather.temperature;
-      var wind = data.current_weather.windspeed;
-
-      box.innerHTML =
-        "<h3>Tokyo Weather 🌤️</h3>" +
-        "<p>Temperature: " + temp + "°C</p>" +
-        "<p>Wind: " + wind + " km/h</p>";
+      var w = data.current_weather;
+      el.textContent = w.temperature + "°C | Wind " + w.windspeed + " km/h";
     })
     .catch(function () {
-      box.textContent = "Weather data not available";
+      el.textContent = "N/A";
     });
 }
-function initDeviceAndJapanTime() {
-  var local = document.getElementById("localTime");
-  var japan = document.getElementById("japanTime");
-  if (!local || !japan) return;
+function initLocalTime() {
+  var el = document.getElementById("localTime");
+  if (!el) return;
 
   function updateTime() {
     var now = new Date();
 
-    local.textContent =
-      now.getHours().toString().padStart(2, "0") + ":" +
-      now.getMinutes().toString().padStart(2, "0") + ":" +
-      now.getSeconds().toString().padStart(2, "0");
-    japan.textContent = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Tokyo",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit"
-    }).format(now);
+    var h = now.getHours().toString().padStart(2, "0");
+    var m = now.getMinutes().toString().padStart(2, "0");
+    var s = now.getSeconds().toString().padStart(2, "0");
+
+    el.textContent = h + ":" + m + ":" + s;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+  
+}function initLocalTime1() {
+  var el = document.getElementById("localTime1");
+  if (!el) return;
+
+  function updateTime() {
+    var now = new Date();
+
+    var h = now.getHours().toString().padStart(2, "0");
+    var m = now.getMinutes().toString().padStart(2, "0");
+    var s = now.getSeconds().toString().padStart(2, "0");
+
+    el.textContent = h + ":" + m + ":" + s;
   }
 
   updateTime();

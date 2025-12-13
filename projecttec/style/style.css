@@ -38,7 +38,8 @@ width:250px;
     background-color:#ffffff ;
 	border-radius:20px;
 	padding:20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
@@ -90,6 +91,8 @@ width:250px;
 .footer a:hover {
 	background-color:rgb(231,133,170,0.3);
 }
+
+
 .divo{
 	background-color:#ffffff;
     color:#6a0040;
@@ -468,32 +471,101 @@ body[data-theme="dark"] #toTop {
 body[data-theme="dark"] #formMsg {
   color: #ffd0e4;
 }
-#weatherBox {
-  background: #ffffff;
-  color: #6a0040;
-  padding: 15px;
-  border-radius: 15px;
-  margin: 20px auto;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+.wcCard{ 
+    background-color:#ffffff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+	border-radius:20px;
+	margin-top:20px;
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 5px;
+	color:#6a0040;
+ 
+}
+.clockBox {
+	background-color:rgb(231,133,170);
+	padding:4px;
+	margin:10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+	border-radius:20px;
 }
 
-body[data-theme="dark"] #weatherBox {
-  background: #2b001a;
-  color: #ffe6f1;
+.wcLeft, .wcRight{
+  flex: 1;
+  text-align: center;
 }
-.clockBox{
-  background:#fff;
-  color:#6a0040;
-  padding:15px;
-  border-radius:12px;
-  max-width:300px;
-  margin:20px auto;
-  text-align:center;
-  font-weight:bold;
+
+.wcIcon{
+  font-size: 100px;
+  margin-bottom: 10px;
 }
 body[data-theme="dark"] .clockBox{
   background:#2b001a;
   color:#ffe6f1;
 }
+
+
+.wcLine{
+  margin: 14px 0 0;
+  font-size: 24px;
+}
+
+.clock{
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.85);
+  position: relative;
+  background: transparent;
+}
+
+.wcRight .clock::after{
+  content:"";
+  width: 10px;
+  height: 10px;
+  background: #6a0040;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wcRight .hand{
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(0deg);
+  border-radius: 10px;
+}
+
+.wcRight .hand.hour{ width: 6px; height: 38px; background: #6a0040; }
+.wcRight .hand.minute{ width: 4px; height: 52px; background: #6a0040; opacity: .9; }
+.wcRight .hand.second{ width: 2px; height: 56px; background: #ffffff; }
+
+
+.saudiclock .hand{
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(0deg);
+  border-radius: 10px;
+}
+
+.saudiclock .hand.hour{ width: 6px; height: 38px; background: #6a0040; }
+.saudiclock .hand.minute{ width: 4px; height: 52px; background: #6a0040; opacity: .9; }
+.saudiclock .hand.second{ width: 2px; height: 56px; background: #ffffff; }
+
+@media (max-width: 700px){
+  .wcCard{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
