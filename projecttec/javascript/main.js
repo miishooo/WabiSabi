@@ -199,4 +199,20 @@ function initDeviceAndJapanTime() {
 
   updateTime();
   setInterval(updateTime, 1000);
+  
+  var japanDate = new Date(
+  new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo" })
+);
+
+var seconds = japanDate.getSeconds();
+var minutes = japanDate.getMinutes();
+var hours = japanDate.getHours();
+
+document.getElementById("japanSecond").style.transform =
+  "rotate(" + seconds * 6 + "deg)";
+document.getElementById("japanMinute").style.transform =
+  "rotate(" + minutes * 6 + "deg)";
+document.getElementById("japanHour").style.transform =
+  "rotate(" + (hours * 30 + minutes / 2) + "deg)";
+
 }

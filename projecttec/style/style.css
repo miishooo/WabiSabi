@@ -98,6 +98,7 @@ width:250px;
 	display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 5px;
+	color:#6a0040;
 }
 #weatherBox{
 	background-color:rgb(231,133,170);
@@ -115,6 +116,36 @@ width:250px;
 	text-align:center;
 	border-radius:20px;
 }
+.clock {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  position: relative;
+  margin: 10px auto;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: #6a0040;
+  top: 50%;
+  left: 50%;
+  transform-origin: left;
+  transform: rotate(0deg);
+}
+
+.hour {
+  width: 30%;
+  height: 3px;
+}
+
+.second {
+  background: #F9E9F1;
+  height: 1px;
+}
+
 .divo{
 	background-color:#ffffff;
     color:#6a0040;
