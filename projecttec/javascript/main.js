@@ -1,19 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
+  const error = document.getElementById("emailError");
+  const msg = document.getElementById("formMsg");
 
   form.addEventListener("submit", function (e) {
     const email1 = document.getElementById("email").value.trim();
     const email2 = document.getElementById("confirmEmail").value.trim();
-    const error = document.getElementById("emailError");
-
+    error.style.display = "none";
+    msg.innerHTML = "";
     if (email1 !== email2) {
-      e.preventDefault();   
+      e.preventDefault();
       error.style.display = "inline";
-    } else {
-      error.style.display = "none";
+      return;
     }
+    e.preventDefault(); 
+    msg.innerHTML =
+      "<p style='color:green;'>✅ Your form has been successfully submitted</p>";
+   setTimeout(() => {
+  msg.innerHTML = "";
+}, 3000);
+   form.reset();
   });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
