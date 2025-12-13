@@ -17,6 +17,7 @@ fetch("data/destinations.json")
           displayCards(filtered);
         }
       });
+      });
     });
   });
 

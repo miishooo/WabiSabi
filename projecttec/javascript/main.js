@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   initTheme();
+  initScrollTop();
 
   if (document.body.classList.contains("home")) {
     initHome();
@@ -121,5 +122,17 @@ function initTheme() {
     }
 
     updateIcon();
+  });
+}
+function initScrollTop() {
+  var btn = document.getElementById("toTop");
+  if (!btn) return;
+
+  window.addEventListener("scroll", function () {
+    btn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+
+  btn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
