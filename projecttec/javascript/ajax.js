@@ -1,6 +1,6 @@
 console.log("AJAX FILE IS WORKING");
 
-fetch("data/destinations.json")
+fetch("../data/destinations.json")
   .then(res => res.json())
   .then(data => {
     displayCards(data);
@@ -8,8 +8,7 @@ fetch("data/destinations.json")
     let buttons = document.querySelectorAll(".filters button");
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
-        let filter = btn.dataset.filter;
-
+        let filter = btn.dataset.type;
         if (filter === "All") {
           displayCards(data);
         } else {
