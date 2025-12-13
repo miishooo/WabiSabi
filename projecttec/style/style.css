@@ -396,6 +396,10 @@ body[data-theme="dark"] th {
 body[data-theme="dark"] img {
   filter: brightness(0.85) contrast(1.05);
 }
+#toTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 
 #gallery {
   display: grid;
@@ -435,4 +439,61 @@ body[data-theme="dark"] img {
   margin: 5px 10px 15px;
   font-size: 14px;
   color: #666;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: #6a0040;
+  color: white;
+  font-size: 18px;
+
+  cursor: pointer;
+  display: none;
+}
+
+#toTop:hover {
+  background-color: #ff8ebf;
+}
+
+body[data-theme="dark"] #toTop {
+  background-color: #ff8ebf;
+  color: #1a0010;
+
+#formMsg {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #6a0040;
+}
+
+body[data-theme="dark"] #formMsg {
+  color: #ffd0e4;
+}
+#weatherBox {
+  background: #ffffff;
+  color: #6a0040;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body[data-theme="dark"] #weatherBox {
+  background: #2b001a;
+  color: #ffe6f1;
+}
+.clockBox{
+  background:#fff;
+  color:#6a0040;
+  padding:15px;
+  border-radius:12px;
+  max-width:300px;
+  margin:20px auto;
+  text-align:center;
+  font-weight:bold;
+}
+body[data-theme="dark"] .clockBox{
+  background:#2b001a;
+  color:#ffe6f1;
 }
