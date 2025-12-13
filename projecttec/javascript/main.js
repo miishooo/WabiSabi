@@ -36,15 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollTop();
   initWelcomeBack();
 initWcCard();
-initLocalTime();
-initLocalTime1();
 
 
   if (document.body.classList.contains("home")) {
     initHome();
     showWelcomeAlert();
 	
-initDeviceAndJapanTime();
 
 {}}
 
@@ -197,9 +194,7 @@ function initWcCard() {
 }
 document.addEventListener("DOMContentLoaded", function () {
 
-  initDeviceAndJapanTime();
-  initSaudiJapanClockBlock();
-  initSaudiClockOnly();
+  
 
 });
 
