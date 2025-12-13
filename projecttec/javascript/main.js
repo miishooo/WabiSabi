@@ -1,4 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", function (e) {
+    const email1 = document.getElementById("email").value.trim();
+    const email2 = document.getElementById("confirmEmail").value.trim();
+    const error = document.getElementById("emailError");
+
+    if (email1 !== email2) {
+      e.preventDefault();   
+      error.style.display = "inline";
+    } else {
+      error.style.display = "none";
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
   initTheme();
   initScrollTop();
   initWelcomeBack();

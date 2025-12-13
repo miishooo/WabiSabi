@@ -9,7 +9,6 @@
 <meta charset="utf-8">
 </head>
 <body>
-<form>
 <header id="hed">
 <button id="themeToggle">🌙</button>
 <img src="../extra/logo.png" id="logo"><!logo>
@@ -23,7 +22,7 @@
 </ul>
 </nav>
 </header><h1 class="background">To contact us</h1>
-<form id="contactForm">
+<form id="contactForm" novalidate>
   <div class="form">
     <div class="inputname">
       <label for="name">Name</label>
@@ -31,8 +30,15 @@
     </div>
     <div class="inputg">
       <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required autocomplete="email">
     </div>
+	<div class="inputg">
+<label for="confirmEmail">Confirm E-mail</label>
+<input type="email" id="confirmEmail" name="confirmEmail" required autocomplete="email">
+<span id="emailError" style="display:none; color:red;">
+Emails do not match
+</span>
+</div>
     <label for="subject">Subject</label>
     <select id="subject" name="Subject" required>
       <option value="">-- Select --</option>
