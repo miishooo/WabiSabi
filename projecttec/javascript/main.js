@@ -21,14 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollTop();
   initWelcomeBack();
 initWcCard();
+initLocalTime();
+initLocalTime1();
+
 
   if (document.body.classList.contains("home")) {
     initHome();
     showWelcomeAlert();
-	initWeather();
+	
 initDeviceAndJapanTime();
 
-  }
+{}}
 
   if (document.body.classList.contains("destinations")) initDestinations();
   if (document.body.classList.contains("contact")) initContact();
@@ -255,4 +258,38 @@ function fetchWeather(lat, lon, elementId) {
     .catch(function () {
       el.textContent = "N/A";
     });
+}
+function initLocalTime() {
+  var el = document.getElementById("localTime");
+  if (!el) return;
+
+  function updateTime() {
+    var now = new Date();
+
+    var h = now.getHours().toString().padStart(2, "0");
+    var m = now.getMinutes().toString().padStart(2, "0");
+    var s = now.getSeconds().toString().padStart(2, "0");
+
+    el.textContent = h + ":" + m + ":" + s;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+  
+}function initLocalTime1() {
+  var el = document.getElementById("localTime1");
+  if (!el) return;
+
+  function updateTime() {
+    var now = new Date();
+
+    var h = now.getHours().toString().padStart(2, "0");
+    var m = now.getMinutes().toString().padStart(2, "0");
+    var s = now.getSeconds().toString().padStart(2, "0");
+
+    el.textContent = h + ":" + m + ":" + s;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
 }
