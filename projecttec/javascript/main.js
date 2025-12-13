@@ -159,7 +159,6 @@ function initWcCard() {
   initWcWeather();
 }
 
-/* الوقت + الساعة (Japan analog + Saudi/Japan text) */
 function initSaudiJapanClockBlock() {
   var saEl = document.getElementById("timeSA");
   var jpEl = document.getElementById("japanTime");
@@ -175,7 +174,6 @@ function initSaudiJapanClockBlock() {
   function update() {
     var now = new Date();
 
-    // Saudi = وقت الجهاز (24h مثل صورتك)
     saEl.textContent =
       pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
 
@@ -212,10 +210,9 @@ function initSaudiJapanClockBlock() {
   setInterval(update, 1000);
 }
 
-/* الطقس (Saudi + Japan) */
 function initWcWeather() {
-  fetchWeather(24.7136, 46.6753, "weatherSA"); // Riyadh
-  fetchWeather(35.6895, 139.6917, "weatherJP"); // Tokyo
+  fetchWeather(24.7136, 46.6753, "weatherSA"); 
+  fetchWeather(35.6895, 139.6917, "weatherJP"); 
 
   setInterval(function () {
     fetchWeather(24.7136, 46.6753, "weatherSA");

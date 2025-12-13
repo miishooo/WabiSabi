@@ -528,8 +528,6 @@ body[data-theme="dark"] #toTop {
 body[data-theme="dark"] #formMsg {
   color: #ffd0e4;
 }
-<<<<<<< HEAD
-/* الخلفية مثل اللي بالصورة */
 .wcCard{
   max-width: 900px;
   margin: 30px auto;
@@ -542,7 +540,6 @@ body[data-theme="dark"] #formMsg {
   gap: 30px;
 }
 
-/* عمودين */
 .wcLeft, .wcRight{
   flex: 1;
   text-align: center;
@@ -558,7 +555,6 @@ body[data-theme="dark"] #formMsg {
   font-size: 24px;
 }
 
-/* clock */
 .wcRight .clock{
   width: 120px;
   height: 120px;
@@ -594,7 +590,6 @@ body[data-theme="dark"] #formMsg {
 .wcRight .hand.minute{ width: 4px; height: 52px; background: #1b0010; opacity: .9; }
 .wcRight .hand.second{ width: 2px; height: 56px; background: #ffffff; }
 
-/* موبايل: يصير فوق وتحت */
 @media (max-width: 700px){
   .wcCard{
     flex-direction: column;
@@ -602,13 +597,3 @@ body[data-theme="dark"] #formMsg {
   }
 }
 
-/* Animation */
-.fade-in{
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease forwards;
-}
-=======
-
-
->>>>>>> 66ce5d52271fc3a138c326f6ce5a9c417c41723a
