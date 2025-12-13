@@ -400,7 +400,7 @@ body[data-theme="dark"] img {
   position: fixed;
   bottom: 20px;
   right: 20px;
-
+}
 #gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -458,7 +458,7 @@ body[data-theme="dark"] img {
 body[data-theme="dark"] #toTop {
   background-color: #ff8ebf;
   color: #1a0010;
-
+}
 #formMsg {
   margin-top: 10px;
   font-weight: bold;

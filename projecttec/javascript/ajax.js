@@ -1,3 +1,26 @@
+let allData = []; 
+
+fetch("../data/destinations.json")
+  .then(response => response.json())
+  .then(data => {
+    allData = data;
+    displayCards(allData);
+    setupFilters();
+  });
+
+function setupFilters() {
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      let type = btn.dataset.type; 
+      if (type === "All") {
+        displayCards(allData); 
+      } else {
+        let filtered = allData.filter(item => item.type === type);
+        displayCards(filtered); 
+      }
+    });
+  });
+}
 function displayCards(arr) {
   let gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
