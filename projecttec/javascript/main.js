@@ -8,11 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const email2 = document.getElementById("confirmEmail").value.trim();
     error.style.display = "none";
     msg.innerHTML = "";
+	const name = document.getElementById("name").value.trim();
+const subject = document.getElementById("subject").value;
+const comment = document.getElementById("comment").value.trim();
     if (email1 !== email2) {
       e.preventDefault();
       error.style.display = "inline";
       return;
     }
+	if (!name || !email1 || !email2 || !subject || !comment) {
+  return; 
+}
     e.preventDefault(); 
     msg.innerHTML =
       "<p style='color:green;'>✅ Your form has been successfully submitted</p>";
