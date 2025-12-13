@@ -18,7 +18,7 @@ fetch("../data/destinations.json")
       });
       });
     });
-  );
+ });
 
 function displayCards(arr) {
   let gallery = document.getElementById("gallery");
