@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initTheme();
   initScrollTop();
   initWelcomeBack();
+initWcCard();
 
   if (document.body.classList.contains("home")) {
     initHome();
@@ -153,66 +154,90 @@ function initWelcomeBack() {
     console.log("Welcome back 💗");
   }
 }
-function initWeather() {
-  var box = document.getElementById("weatherBox");
-  if (!box) return;
-
-  var url =
-    "https://api.open-meteo.com/v1/forecast?latitude=35.6895&longitude=139.6917&current_weather=true";
-
-  fetch(url)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      var temp = data.current_weather.temperature;
-      var wind = data.current_weather.windspeed;
-
-      box.innerHTML =
-        "<h3>Tokyo Weather 🌤️</h3>" +
-        "<p>Temperature: " + temp + "°C</p>" +
-        "<p>Wind: " + wind + " km/h</p>";
-    })
-    .catch(function () {
-      box.textContent = "Weather data not available";
-    });
+function initWcCard() {
+  initSaudiJapanClockBlock();
+  initWcWeather();
 }
-function initDeviceAndJapanTime() {
-  var local = document.getElementById("localTime");
-  var japan = document.getElementById("japanTime");
-  if (!local || !japan) return;
 
-  function updateTime() {
+/* الوقت + الساعة (Japan analog + Saudi/Japan text) */
+function initSaudiJapanClockBlock() {
+  var saEl = document.getElementById("timeSA");
+  var jpEl = document.getElementById("japanTime");
+
+  var hHand = document.getElementById("japanHour");
+  var mHand = document.getElementById("japanMinute");
+  var sHand = document.getElementById("japanSecond");
+
+  if (!saEl || !jpEl) return;
+
+  function pad(n){ return String(n).padStart(2,"0"); }
+
+  function update() {
     var now = new Date();
 
-    local.textContent =
-      now.getHours().toString().padStart(2, "0") + ":" +
-      now.getMinutes().toString().padStart(2, "0") + ":" +
-      now.getSeconds().toString().padStart(2, "0");
-    japan.textContent = new Intl.DateTimeFormat("en-GB", {
+    // Saudi = وقت الجهاز (24h مثل صورتك)
+    saEl.textContent =
+      pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
+
+    // Japan text (24h)
+    jpEl.textContent = new Intl.DateTimeFormat("en-GB", {
       timeZone: "Asia/Tokyo",
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit"
+      second: "2-digit",
+      hour12: false
     }).format(now);
+
+    // Japan analog
+    if (hHand && mHand && sHand) {
+      var parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Tokyo",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }).formatToParts(now);
+
+      var H = Number(parts.find(p => p.type === "hour").value);
+      var M = Number(parts.find(p => p.type === "minute").value);
+      var S = Number(parts.find(p => p.type === "second").value);
+
+      hHand.style.transform = "translateX(-50%) rotate(" + ((H%12)*30 + M*0.5) + "deg)";
+      mHand.style.transform = "translateX(-50%) rotate(" + (M*6 + S*0.1) + "deg)";
+      sHand.style.transform = "translateX(-50%) rotate(" + (S*6) + "deg)";
+    }
   }
 
-  updateTime();
-  setInterval(updateTime, 1000);
-  
-  var japanDate = new Date(
-  new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo" })
-);
+  update();
+  setInterval(update, 1000);
+}
 
-var seconds = japanDate.getSeconds();
-var minutes = japanDate.getMinutes();
-var hours = japanDate.getHours();
+/* الطقس (Saudi + Japan) */
+function initWcWeather() {
+  fetchWeather(24.7136, 46.6753, "weatherSA"); // Riyadh
+  fetchWeather(35.6895, 139.6917, "weatherJP"); // Tokyo
 
-document.getElementById("japanSecond").style.transform =
-  "rotate(" + seconds * 6 + "deg)";
-document.getElementById("japanMinute").style.transform =
-  "rotate(" + minutes * 6 + "deg)";
-document.getElementById("japanHour").style.transform =
-  "rotate(" + (hours * 30 + minutes / 2) + "deg)";
+  setInterval(function () {
+    fetchWeather(24.7136, 46.6753, "weatherSA");
+    fetchWeather(35.6895, 139.6917, "weatherJP");
+  }, 10 * 60 * 1000);
+}
 
+function fetchWeather(lat, lon, elementId) {
+  var el = document.getElementById(elementId);
+  if (!el) return;
+
+  var url =
+    "https://api.open-meteo.com/v1/forecast?latitude=" +
+    lat + "&longitude=" + lon + "&current_weather=true";
+
+  fetch(url)
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      var w = data.current_weather;
+      el.textContent = w.temperature + "°C | Wind " + w.windspeed + " km/h";
+    })
+    .catch(function () {
+      el.textContent = "N/A";
+    });
 }
