@@ -38,7 +38,8 @@ width:250px;
     background-color:#ffffff ;
 	border-radius:20px;
 	padding:20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
@@ -90,66 +91,8 @@ width:250px;
 .footer a:hover {
 	background-color:rgb(231,133,170,0.3);
 }
-<<<<<<< HEAD
-=======
-#WCdiv{
-	background-color:#ffffff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	text-align:center;
-	border-radius:20px;
-	margin-top:20px;
-	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 5px;
-	color:#6a0040;
-}
-#weatherBox{
-	background-color:rgb(231,133,170);
-	padding:4px;
-	margin:10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	text-align:center;
-	border-radius:20px;
-}
-.clockBox {
-	background-color:rgb(231,133,170);
-	padding:4px;
-	margin:10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	text-align:center;
-	border-radius:20px;
-}
-.clock {
-  width: 60px;
-  height: 60px;
-  border: 3px solid #ffffff;
-  border-radius: 50%;
-  position: relative;
-  margin: 10px auto;
-}
 
-.hand {
-  position: absolute;
-  width: 50%;
-  height: 2px;
-  background: #6a0040;
-  top: 50%;
-  left: 50%;
-  transform-origin: left;
-  transform: rotate(0deg);
-}
 
-.hour {
-  width: 30%;
-  height: 3px;
-}
-
-.second {
-  background: #F9E9F1;
-  height: 1px;
-}
-
->>>>>>> 66ce5d52271fc3a138c326f6ce5a9c417c41723a
 .divo{
 	background-color:#ffffff;
     color:#6a0040;
@@ -528,8 +471,18 @@ body[data-theme="dark"] #toTop {
 body[data-theme="dark"] #formMsg {
   color: #ffd0e4;
 }
-.wcCard{
-  max-width: 900px;
+
+.wcCard{ 
+    background-color:#ffffff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+	border-radius:20px;
+	margin-top:20px;
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 5px;
+	color:#6a0040;
+  /*max-width: 900px;
   margin: 30px auto;
   padding: 28px 24px;
   border-radius: 25px;
@@ -537,7 +490,15 @@ body[data-theme="dark"] #formMsg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 30px;*/
+}
+.clockBox {
+	background-color:rgb(231,133,170);
+	padding:4px;
+	margin:10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align:center;
+	border-radius:20px;
 }
 
 .wcLeft, .wcRight{
@@ -546,7 +507,7 @@ body[data-theme="dark"] #formMsg {
 }
 
 .wcIcon{
-  font-size: 48px;
+  font-size: 100px;
   margin-bottom: 10px;
 }
 
@@ -555,7 +516,7 @@ body[data-theme="dark"] #formMsg {
   font-size: 24px;
 }
 
-.wcRight .clock{
+.clock{
   width: 120px;
   height: 120px;
   margin: 0 auto 10px;
@@ -569,7 +530,7 @@ body[data-theme="dark"] #formMsg {
   content:"";
   width: 10px;
   height: 10px;
-  background: #1b0010;
+  background: #6a0040;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -586,8 +547,8 @@ body[data-theme="dark"] #formMsg {
   border-radius: 10px;
 }
 
-.wcRight .hand.hour{ width: 6px; height: 38px; background: #1b0010; }
-.wcRight .hand.minute{ width: 4px; height: 52px; background: #1b0010; opacity: .9; }
+.wcRight .hand.hour{ width: 6px; height: 38px; background: #6a0040; }
+.wcRight .hand.minute{ width: 4px; height: 52px; background: #6a0040; opacity: .9; }
 .wcRight .hand.second{ width: 2px; height: 56px; background: #ffffff; }
 
 @media (max-width: 700px){
@@ -596,4 +557,35 @@ body[data-theme="dark"] #formMsg {
     text-align: center;
   }
 }
+
+
+ /*.clock {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  position: relative;
+  margin: 10px auto;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: #6a0040;
+  top: 50%;
+  left: 50%;
+  transform-origin: left;
+  transform: rotate(0deg);
+}
+
+.hour {
+  width: 30%;
+  height: 3px;
+}
+
+.second {
+  background: #F9E9F1;
+  height: 1px;
+}*/
 
