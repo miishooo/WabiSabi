@@ -508,18 +508,17 @@ body[data-theme="dark"] #formMsg {
   font-size: 24px;
 }
 
-.clock{
+.clock {
   width: 120px;
   height: 120px;
-  margin: 0 auto 10px;
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.85);
+  border: 4px solid rgba(255,255,255,.85);
   position: relative;
-  background: transparent;
+  margin: 10px auto;
 }
 
-.wcRight .clock::after{
-  content:"";
+.clock::after {
+  content: "";
   width: 10px;
   height: 10px;
   background: #6a0040;
@@ -530,37 +529,22 @@ body[data-theme="dark"] #formMsg {
   transform: translate(-50%, -50%);
 }
 
-.wcRight .hand{
+.hand {
   position: absolute;
   left: 50%;
   bottom: 50%;
   transform-origin: bottom center;
-  transform: translateX(-50%) rotate(0deg);
   border-radius: 10px;
 }
 
-.wcRight .hand.hour{ width: 6px; height: 38px; background: #6a0040; }
-.wcRight .hand.minute{ width: 4px; height: 52px; background: #6a0040; opacity: .9; }
-.wcRight .hand.second{ width: 2px; height: 56px; background: #ffffff; }
+.hand.hour { width: 6px; height: 38px; background: #6a0040; }
+.hand.minute { width: 4px; height: 52px; background: #6a0040; opacity: .9; }
+.hand.second { width: 2px; height: 56px; background: #fff; }
 
-
-.saudiclock .hand{
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform-origin: bottom center;
-  transform: translateX(-50%) rotate(0deg);
-  border-radius: 10px;
+.wcLine {
+  text-align: center;
+  font-size: 18px;
 }
-
-.saudiclock .hand.hour{ width: 6px; height: 38px; background: #6a0040; }
-.saudiclock .hand.minute{ width: 4px; height: 52px; background: #6a0040; opacity: .9; }
-.saudiclock .hand.second{ width: 2px; height: 56px; background: #ffffff; }
-
-@media (max-width: 700px){
-  .wcCard{
-    flex-direction: column;
-    text-align: center;
   }
 }
 
