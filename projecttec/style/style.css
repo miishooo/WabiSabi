@@ -403,6 +403,18 @@ body[data-theme="dark"] img {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: #6a0040;
+  color: white;
+  font-size: 18px;
+
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 #gallery {
   display: grid;
