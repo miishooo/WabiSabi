@@ -36,15 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollTop();
   initWelcomeBack();
 initWcCard();
-initLocalTime();
-initLocalTime1();
 
 
   if (document.body.classList.contains("home")) {
     initHome();
     showWelcomeAlert();
 	
-initDeviceAndJapanTime();
 
 {}}
 
@@ -190,61 +187,68 @@ function initWelcomeBack() {
     console.log("Welcome back 💗");
   }
 }
+
 function initWcCard() {
-  initSaudiJapanClockBlock();
+  
   initWcWeather();
 }
+document.addEventListener("DOMContentLoaded", function () {
 
-function initSaudiJapanClockBlock() {
-  var saEl = document.getElementById("timeSA");
-  var jpEl = document.getElementById("japanTime");
+  
 
-  var hHand = document.getElementById("japanHour");
-  var mHand = document.getElementById("japanMinute");
-  var sHand = document.getElementById("japanSecond");
+});
 
-  if (!saEl || !jpEl) return;
+function initAnalogClock(timeZone, ids) {
+	
+  const h = document.getElementById(ids.h);
+  const m = document.getElementById(ids.m);
+  const s = document.getElementById(ids.s);
+  const digital = document.getElementById(ids.digital);
 
-  function pad(n){ return String(n).padStart(2,"0"); }
+  if (!h || !m || !s || !digital) return;
 
   function update() {
-    var now = new Date();
+    const now = new Date();
 
-    saEl.textContent =
-      pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
-
-    // Japan text (24h)
-    jpEl.textContent = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Tokyo",
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone,
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
       hour12: false
-    }).format(now);
+    }).formatToParts(now);
 
-    // Japan analog
-    if (hHand && mHand && sHand) {
-      var parts = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Asia/Tokyo",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false
-      }).formatToParts(now);
+    const H = Number(parts.find(p => p.type === "hour").value);
+    const M = Number(parts.find(p => p.type === "minute").value);
+    const S = Number(parts.find(p => p.type === "second").value);
 
-      var H = Number(parts.find(p => p.type === "hour").value);
-      var M = Number(parts.find(p => p.type === "minute").value);
-      var S = Number(parts.find(p => p.type === "second").value);
+    h.style.transform = `translateX(-50%) rotate(${(H % 12) * 30 + M * 0.5}deg)`;
+    m.style.transform = `translateX(-50%) rotate(${M * 6 + S * 0.1}deg)`;
+    s.style.transform = `translateX(-50%) rotate(${S * 6}deg)`;
 
-      hHand.style.transform = "translateX(-50%) rotate(" + ((H%12)*30 + M*0.5) + "deg)";
-      mHand.style.transform = "translateX(-50%) rotate(" + (M*6 + S*0.1) + "deg)";
-      sHand.style.transform = "translateX(-50%) rotate(" + (S*6) + "deg)";
-    }
+    digital.textContent =
+      String(H).padStart(2, "0") + ":" +
+      String(M).padStart(2, "0") + ":" +
+      String(S).padStart(2, "0");
   }
 
   update();
   setInterval(update, 1000);
 }
+initAnalogClock("Asia/Tokyo", {
+  h: "jpHour",
+  m: "jpMinute",
+  s: "jpSecond",
+  digital: "jpDigital"
+});
+
+initAnalogClock("Asia/Riyadh", {
+  h: "saHour",
+  m: "saMinute",
+  s: "saSecond",
+  digital: "saDigital"
+});
+
 
 function initWcWeather() {
   fetchWeather(24.7136, 46.6753, "weatherSA"); 
@@ -274,37 +278,4 @@ function fetchWeather(lat, lon, elementId) {
       el.textContent = "N/A";
     });
 }
-function initLocalTime() {
-  var el = document.getElementById("localTime");
-  if (!el) return;
 
-  function updateTime() {
-    var now = new Date();
-
-    var h = now.getHours().toString().padStart(2, "0");
-    var m = now.getMinutes().toString().padStart(2, "0");
-    var s = now.getSeconds().toString().padStart(2, "0");
-
-    el.textContent = h + ":" + m + ":" + s;
-  }
-
-  updateTime();
-  setInterval(updateTime, 1000);
-  
-}function initLocalTime1() {
-  var el = document.getElementById("localTime1");
-  if (!el) return;
-
-  function updateTime() {
-    var now = new Date();
-
-    var h = now.getHours().toString().padStart(2, "0");
-    var m = now.getMinutes().toString().padStart(2, "0");
-    var s = now.getSeconds().toString().padStart(2, "0");
-
-    el.textContent = h + ":" + m + ":" + s;
-  }
-
-  updateTime();
-  setInterval(updateTime, 1000);
-}

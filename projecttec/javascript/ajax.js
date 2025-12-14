@@ -7,6 +7,22 @@ fetch("../data/destinations.json")
     displayCards(allData);
     setupFilters();
   });
+    displayCards(data);
+
+    let buttons = document.querySelectorAll(".filters button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        let filter = btn.dataset.type;
+        if (filter === "All") {
+          displayCards(data);
+        } else {
+          let filtered = data.filter(item => item.type === filter);
+          displayCards(filtered);
+        }
+      });
+      });
+    });
+ });
 
 function setupFilters() {
   document.querySelectorAll(".filter-btn").forEach(btn => {
