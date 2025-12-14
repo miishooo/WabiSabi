@@ -557,8 +557,19 @@ body[data-theme="dark"] #formMsg {
   text-align: center;
   font-size: 18px;
 }
-  }
+
+body[data-theme="dark"] .wcCard{
+  background-color: #2b001a !important;
+  color: #ffe6f1 !important;
+  box-shadow: none !important;
 }
-
-
-
+body[data-theme="dark"] .clockBox {
+  background-color: #3b0a2a !important;
+  border-color: rgba(255, 142, 191, 0.45) !important;
+  color: #ffe6f1 !important;
+}
+body[data-theme="dark"] .clock::after ,
+body[data-theme="dark"] .hand.hour ,
+body[data-theme="dark"] .hand.minute{
+	background:rgb(231,133,170);
+}
