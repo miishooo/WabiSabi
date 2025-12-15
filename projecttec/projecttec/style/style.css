@@ -514,11 +514,6 @@ body[data-theme="dark"] #formMsg {
   font-size: 100px;
   margin-bottom: 10px;
 }
-body[data-theme="dark"] .clockBox{
-  background:#2b001a;
-  color:#ffe6f1;
-}
-
 
 .wcLine{
   margin: 14px 0 0;
