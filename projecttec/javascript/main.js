@@ -1,137 +1,77 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  const error = document.getElementById("emailError");
-  const msg = document.getElementById("formMsg");
-
-  form.addEventListener("submit", function (e) {
-    const email1 = document.getElementById("email").value.trim();
-    const email2 = document.getElementById("confirmEmail").value.trim();
-    error.style.display = "none";
-    msg.innerHTML = "";
-	const name = document.getElementById("name").value.trim();
-const subject = document.getElementById("subject").value;
-const comment = document.getElementById("comment").value.trim();
-    if (email1 !== email2) {
-      e.preventDefault();
-      error.style.display = "inline";
-      return;
-    }
-	if (!name || !email1 || !email2 || !subject || !comment) {
-  return; 
-}
-    e.preventDefault(); 
-    msg.innerHTML =
-      "<p style='color:green;'>✅ Your form has been successfully submitted</p>";
-   setTimeout(() => {
-  msg.innerHTML = "";
-}, 3000);
-   form.reset();
-  });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
   initTheme();
   initScrollTop();
   initWelcomeBack();
-initWcCard();
-
 
   if (document.body.classList.contains("home")) {
     initHome();
     showWelcomeAlert();
-	
+  }
 
-{}}
+  if (document.body.classList.contains("destinations")) {
+    initDestinations();
+    initWcCard(); 
+  }
 
-  if (document.body.classList.contains("destinations")) initDestinations();
-  if (document.body.classList.contains("contact")) initContact();
+  if (document.body.classList.contains("contact")) {
+    initContact();
+  }
 });
+
+function initHome() {
+}
 
 function initContact() {
   var form = document.getElementById("contactForm");
-  var msgBox = document.getElementById("formMsg");
-  if (!form || !msgBox) return;
+  var msg = document.getElementById("formMsg");
+  var error = document.getElementById("emailError");
 
-  var nameEl = document.getElementById("name");
-  var emailEl = document.getElementById("email");
-  var subjectEl = document.getElementById("subject");
-  var commentEl = document.getElementById("comment");
-
-  if (!nameEl || !emailEl || !subjectEl || !commentEl) return;
+  if (!form || !msg) return;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var name = nameEl.value.trim();
-    var email = emailEl.value.trim();
-    var subject = subjectEl.value;
-    var comment = commentEl.value.trim();
+    var nameEl = document.getElementById("name");
+    var emailEl = document.getElementById("email");
+    var confirmEl = document.getElementById("confirmEmail"); // لو موجود
+    var subjectEl = document.getElementById("subject");
+    var commentEl = document.getElementById("comment");
 
-    var errors = [];
+    var name = nameEl ? nameEl.value.trim() : "";
+    var email1 = emailEl ? emailEl.value.trim() : "";
+    var email2 = confirmEl ? confirmEl.value.trim() : email1; // إذا ما عندك confirmEmail خليه نفس email
+    var subject = subjectEl ? subjectEl.value : "";
+    var comment = commentEl ? commentEl.value.trim() : "";
 
-    if (!name) errors.push("Name is required");
-    if (!email) errors.push("Email is required");
-    if (email && !isValidEmail(email)) errors.push("Invalid email format");
-    if (!subject) errors.push("Please select a subject");
-    if (!comment) errors.push("Comment is required");
-    if (comment.length < 10) errors.push("Comment must be at least 10 characters");
+    if (error) error.style.display = "none";
+    msg.innerHTML = "";
 
-    if (errors.length > 0) {
-      msgBox.innerHTML = "<ul><li>" + errors.join("</li><li>") + "</li></ul>";
+    if (email1 !== email2) {
+      if (error) error.style.display = "inline";
       return;
     }
 
-    msgBox.innerHTML = "<p>✅ Comment sent successfully!</p>";
+    var errors = [];
+    if (!name) errors.push("Name is required");
+    if (!email1) errors.push("Email is required");
+    if (email1 && !isValidEmail(email1)) errors.push("Invalid email format");
+    if (!subject) errors.push("Please select a subject");
+    if (!comment) errors.push("Comment is required");
+    if (comment && comment.length < 10) errors.push("Comment must be at least 10 characters");
+
+    if (errors.length > 0) {
+      msg.innerHTML = "<ul><li>" + errors.join("</li><li>") + "</li></ul>";
+      return;
+    }
+
+    msg.innerHTML = "<p style='color:green;'>✅ Your form has been successfully submitted</p>";
+    setTimeout(function () { msg.innerHTML = ""; }, 3000);
     form.reset();
   });
 }
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-}
-
-function initHome() {
-  var box = document.getElementById("welcomeBox");
-  if (!box) return;
-}
-
-function showWelcomeAlert() {
-  var overlay = document.getElementById("overlay");
-  var box = document.getElementById("backBox");
-  var btn = document.getElementById("backBtn");
-  if (!overlay || !box || !btn) return;
-
-  var enter = confirm("🎉 Welcome to our project!\n\nClick OK to enter and explore.");
-
-  if (enter) {
-    overlay.style.display = "none";
-    box.onmouseenter = null;
-  } else {
-    overlay.style.display = "block";
-    moveBoxRandom(box);
-
-    box.onmouseenter = function () {
-      moveBoxRandom(box);
-    };
-
-    btn.onclick = function () {
-      overlay.style.display = "none";
-      box.onmouseenter = null;
-    };
-  }
-}
-
-function moveBoxRandom(box) {
-  var maxX = window.innerWidth - box.offsetWidth;
-  var maxY = window.innerHeight - box.offsetHeight;
-
-  var x = Math.random() * Math.max(0, maxX);
-  var y = Math.random() * Math.max(0, maxY);
-
-  box.style.left = x + "px";
-  box.style.top = y + "px";
 }
 
 function initDestinations() {}
@@ -153,7 +93,6 @@ function initTheme() {
 
   btn.addEventListener("click", function () {
     var isDark = document.body.getAttribute("data-theme") === "dark";
-
     if (isDark) {
       document.body.removeAttribute("data-theme");
       localStorage.setItem("theme", "light");
@@ -161,10 +100,10 @@ function initTheme() {
       document.body.setAttribute("data-theme", "dark");
       localStorage.setItem("theme", "dark");
     }
-
     updateIcon();
   });
 }
+
 function initScrollTop() {
   var btn = document.getElementById("toTop");
   if (!btn) return;
@@ -188,85 +127,53 @@ function initWelcomeBack() {
   }
 }
 
-function initWcCard() {
-  
-  initWcWeather();
-}
-document.addEventListener("DOMContentLoaded", function () {
+function showWelcomeAlert() {
+  var overlay = document.getElementById("overlay");
+  var box = document.getElementById("backBox");
+  var btn = document.getElementById("backBtn");
+  if (!overlay || !box || !btn) return;
 
-  
-
-});
-
-function initAnalogClock(timeZone, ids) {
-	
-  const h = document.getElementById(ids.h);
-  const m = document.getElementById(ids.m);
-  const s = document.getElementById(ids.s);
-  const digital = document.getElementById(ids.digital);
-
-  if (!h || !m || !s || !digital) return;
-
-  function update() {
-    const now = new Date();
-
-    const parts = new Intl.DateTimeFormat("en-GB", {
-      timeZone,
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false
-    }).formatToParts(now);
-
-    const H = Number(parts.find(p => p.type === "hour").value);
-    const M = Number(parts.find(p => p.type === "minute").value);
-    const S = Number(parts.find(p => p.type === "second").value);
-
-    h.style.transform = `translateX(-50%) rotate(${(H % 12) * 30 + M * 0.5}deg)`;
-    m.style.transform = `translateX(-50%) rotate(${M * 6 + S * 0.1}deg)`;
-    s.style.transform = `translateX(-50%) rotate(${S * 6}deg)`;
-
-    digital.textContent =
-      String(H).padStart(2, "0") + ":" +
-      String(M).padStart(2, "0") + ":" +
-      String(S).padStart(2, "0");
+  var enter = confirm("🎉 Welcome to our project!\n\nClick OK to enter and explore.");
+  if (enter) {
+    overlay.style.display = "none";
+    box.onmouseenter = null;
+    return;
   }
 
-  update();
-  setInterval(update, 1000);
+  overlay.style.display = "block";
+  moveBoxRandom(box);
+
+  box.onmouseenter = function () { moveBoxRandom(box); };
+  btn.onclick = function () {
+    overlay.style.display = "none";
+    box.onmouseenter = null;
+  };
 }
-initAnalogClock("Asia/Tokyo", {
-  h: "jpHour",
-  m: "jpMinute",
-  s: "jpSecond",
-  digital: "jpDigital"
-});
 
-initAnalogClock("Asia/Riyadh", {
-  h: "saHour",
-  m: "saMinute",
-  s: "saSecond",
-  digital: "saDigital"
-});
+function moveBoxRandom(box) {
+  var maxX = window.innerWidth - box.offsetWidth;
+  var maxY = window.innerHeight - box.offsetHeight;
+  var x = Math.random() * Math.max(0, maxX);
+  var y = Math.random() * Math.max(0, maxY);
+  box.style.left = x + "px";
+  box.style.top = y + "px";
+}
 
+function initWcCard() {
+  initWcWeather();
+}
 
 function initWcWeather() {
-  fetchWeather(24.7136, 46.6753, "weatherSA"); 
-  fetchWeather(35.6895, 139.6917, "weatherJP"); 
-
-  setInterval(function () {
-    fetchWeather(24.7136, 46.6753, "weatherSA");
-    fetchWeather(35.6895, 139.6917, "weatherJP");
-  }, 10 * 60 * 1000);
+  fetchWeather(24.7136, 46.6753, "weatherSA"); // Riyadh
+  fetchWeather(35.6895, 139.6917, "weatherJP"); // Tokyo
 }
 
 function fetchWeather(lat, lon, elementId) {
   var el = document.getElementById(elementId);
   if (!el) return;
 
-  var url =
-    "https://api.open-meteo.com/v1/forecast?latitude=" +
-    lat + "&longitude=" + lon + "&current_weather=true";
+  var url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat +
+            "&longitude=" + lon + "&current_weather=true";
 
   fetch(url)
     .then(function (res) { return res.json(); })
@@ -274,8 +181,5 @@ function fetchWeather(lat, lon, elementId) {
       var w = data.current_weather;
       el.textContent = w.temperature + "°C | Wind " + w.windspeed + " km/h";
     })
-    .catch(function () {
-      el.textContent = "N/A";
-    });
+    .catch(function () { el.textContent = "N/A"; });
 }
-
