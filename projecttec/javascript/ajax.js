@@ -8,6 +8,8 @@ fetch("../data/destinations.json")
     setupFilters();
   });
     displayCards(data);
+	 });
+      });
 
     let buttons = document.querySelectorAll(".filters button");
     buttons.forEach(btn => {
@@ -21,8 +23,7 @@ fetch("../data/destinations.json")
         }
       });
       });
-    });
- });
+ 
 
 function setupFilters() {
   document.querySelectorAll(".filter-btn").forEach(btn => {
