@@ -4,6 +4,8 @@ fetch("../data/destinations.json")
   .then(res => res.json())
   .then(data => {
     displayCards(data);
+	 });
+      });
 
     let buttons = document.querySelectorAll(".filters button");
     buttons.forEach(btn => {
@@ -17,8 +19,7 @@ fetch("../data/destinations.json")
         }
       });
       });
-    });
- });
+ 
 
 function displayCards(arr) {
   let gallery = document.getElementById("gallery");
