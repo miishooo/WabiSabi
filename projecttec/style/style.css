@@ -41,10 +41,10 @@ width:250px;
     display: grid ;
     grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
     gap: 15px;         
-    /*flex-direction: row;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex;
-    align-items: center;*/
+    align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	}
 
