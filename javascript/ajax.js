@@ -5,7 +5,7 @@ fetch("../data/destinations.json")
   .then(data => {
     displayCards(data);
 	 });
-      });
+      ;
 
     let buttons = document.querySelectorAll(".filters button");
     buttons.forEach(btn => {
