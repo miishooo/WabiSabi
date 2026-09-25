@@ -421,8 +421,12 @@ body[data-theme="dark"] img {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
+  color : #6a0040
 }
-
+body[data-theme="dark"] #gallery  {
+  background-color: #2b001a;
+  color: 	background:rgb(231,133,170);
+}
 
 .card {
   background-color: #fff;
@@ -514,6 +518,11 @@ body[data-theme="dark"] #formMsg {
   font-size: 100px;
   margin-bottom: 10px;
 }
+body[data-theme="dark"] .clockBox{
+  background:#2b001a;
+  color:#ffe6f1;
+}
+
 
 .wcLine{
   margin: 14px 0 0;
@@ -573,3 +582,119 @@ body[data-theme="dark"] .hand.hour ,
 body[data-theme="dark"] .hand.minute{
 	background:rgb(231,133,170);
 }
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.filters .filter-btn {
+  min-width: 180px;        
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #e785aa; 
+  background-color: #f9e9f1;
+  color: #6a0040;
+  font-weight: bold;
+  text-align: center;
+
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.filters .filter-btn:hover {
+  background-color: #e785aa;
+  color: #ffffff;
+  transform: translateY(-2px);
+  border-color: #6a0040;
+}
+
+.filters .filter-btn.active {
+  background-color: #6a0040;
+  color: #ffffff;
+  border-color: #6a0040;
+}
+body[data-theme="dark"] .filters .filter-btn {
+  background-color: #5c1a3c;
+  color: #ffffff;
+  border: 2px solid #ff8ebf;
+}
+
+body[data-theme="dark"] .filters .filter-btn:hover {
+  background-color: #ff8ebf;
+  color: #3b0a2a;
+  border-color: #ffffff;
+}
+
+body[data-theme="dark"] .filters .filter-btn.active {
+  background-color: #ff8ebf;
+  color: #3b0a2a;
+  border-color: #ffffff;
+}
+.star {
+  cursor: pointer;
+  user-select: none;
+}
+.ratingBox {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  color: #6a0040;
+}
+
+.ratingTitle {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+.flower-rating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.flower {
+  border: 2px solid #e785aa;
+  background: #f9e9f1;
+  color: #6a0040;
+  font-size: 26px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.flower:hover {
+  transform: translateY(-2px);
+  background: #e785aa;
+  color: #ffffff;
+}
+
+.ratingMsg {
+  margin-top: 10px;
+  font-weight: bold;
+}
+body[data-theme="dark"] .ratingBox {
+  background: #5c1a3c;
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .flower {
+  background: #3b0a2a;
+  color: #ffffff;
+  border-color: #ff8ebf;
+}
+
+body[data-theme="dark"] .flower:hover {
+  background: #ff8ebf;
+  color: #3b0a2a;
+}
+
+

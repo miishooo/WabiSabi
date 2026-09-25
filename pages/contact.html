@@ -1,71 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="../style/style.css"/>
+  <meta charset="utf-8">
 
-<script src="../javascript/dom.js" type="text/javascript" defer></script>
-<script src="../javascript/ajax.js" type="text/javascript" defer></script>
-<script src="../javascript/main.js" type="text/javascript" defer></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<meta charset="utf-8">
+  <link rel="stylesheet" href="../style/style.css"/>
+
+  <script src="../javascript/dom.js" type="text/javascript" defer></script>
+  <script src="../javascript/ajax.js" type="text/javascript" defer></script>
+  <script src="../javascript/main.js" type="text/javascript" defer></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Contact</title>
 </head>
-<body>
-<header id="hed">
-<button id="themeToggle">🌙</button>
-<img src="../extra/logo.png" id="logo"><!logo>
-<p>Japan through the calm of Wabi-Sabi</p>
-<nav>
-<ul>
-<li><a href="../index.html" >HOME</a></li>
-<li><a href="about.html" >ABOUT</a></li>
-<li><a href="destinations.html">DESTINATIONS</a></li>
-<li><a href="contact.html">CONTACT</a></li>
-</ul>
-</nav>
-</header>
-<h1 class="background">To contact us</h1>
-<form id="contactForm" novalidate>
-  <div class="form" >
+
+<body class="contact">
+
+  <header id="hed">
+    <button id="themeToggle">🌙</button>
+    <img src="../extra/logo.png" id="logo" alt="logo">
+    <p>Japan through the calm of Wabi-Sabi</p>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="destinations.html">DESTINATIONS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 class="background">To contact us</h1>
+
+  <form id="contactForm" novalidate>
+    <div class="form">
+
       <div class="inputname">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" placeholder="Dana" required>
       </div>
+
       <div class="inputg">
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required autocomplete="email">
       </div>
-	<div class="inputg">
-          <label for="confirmEmail">Confirm E-mail</label>
-          <input type="email" id="confirmEmail" name="confirmEmail" required autocomplete="email">
-          <span id="emailError" style="display:none; color:red;"> Emails do not match </span>
-            <br><br>
-          <label for="subject">Subject</label>
-        <select id="subject" name="Subject" required>
-          <option value="">-- Select --</option>
-          <option value="Flights">Flights</option>
-          <option value="Hotels">Hotels</option>
-          <option value="Tourist destinations">Tourist destinations</option>
-          <option value="Financial transactions">Financial transactions</option>
-          <option value="Other">Other</option>
-        </select>
-            <br><br>
-          <label for="comment">Description</label>
-          <textarea name="comment" id="comment" required></textarea>
-            <br><br>
-	          <div id="formMsg"></div>
-        <footer id="footer2">
-             <input type="submit" value="Send" class="submit-btn">
-        </footer>
-    </div>
-  </div>
-</form>
-<button id="toTop">⬆</button>
 
-<footer class="footer">
-<p class="background">Follow us:</p>
-<a href="#">instagram</a>
-<a href="#">snapchat</a>
-<a href="#">X</a>
-<p class="background"> @2025 wabisabi</p>
-</footer>
+      <div class="inputg">
+        <label for="confirmEmail">Confirm E-mail</label>
+        <input type="email" id="confirmEmail" name="confirmEmail" required autocomplete="email">
+        <span id="emailError" style="display:none; color:red;">Emails do not match</span>
+      </div>
+   
+
+      <br><br>
+
+      <label for="subject">Subject</label>
+      <select id="subject" name="Subject" required>
+        <option value="">-- Select --</option>
+        <option value="Flights">Flights</option>
+        <option value="Hotels">Hotels</option>
+        <option value="Tourist destinations">Tourist destinations</option>
+        <option value="Financial transactions">Financial transactions</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <br><br>
+
+      <label for="comment">Description</label>
+      <textarea name="comment" id="comment" required></textarea>
+
+      <br><br>
+   <div class="ratingBox">
+  <p class="ratingTitle">Rate our service:</p>
+
+  <div class="flower-rating" id="flowerRating" aria-label="Flower rating">
+    <button type="button" class="flower" data-value="1">❀</button>
+    <button type="button" class="flower" data-value="2">❀</button>
+    <button type="button" class="flower" data-value="3">❀</button>
+    <button type="button" class="flower" data-value="4">❀</button>
+    <button type="button" class="flower" data-value="5">❀</button>
+  </div>
+
+
+  <input type="hidden" id="ratingMsg" name="rating">
+</div>
+      <div id="formMsg"></div>
+
+      <footer id="footer2">
+        <input type="submit" value="Send" class="submit-btn">
+      </footer>
+
+    </div>
+  </form>
+
+  <button id="toTop">⬆</button>
+
+  <footer class="footer">
+    <p class="background">Follow us:</p>
+    <a href="#">instagram</a>
+    <a href="#">snapchat</a>
+    <a href="#">X</a>
+    <p class="background">@2025 wabisabi</p>
+  </footer>
+
 </body>
 </html>

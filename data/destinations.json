@@ -1,143 +1,167 @@
 [
   {
+    "id": "1",
     "name": "Tokyo Tower",
     "type": "Tourism",
     "desc": "A famous landmark in Tokyo.",
     "image": "../images/tokyo_tower.jpg"
   },
   {
+    "id": "2",
     "name": "Mount Fuji",
     "type": "Tourism",
     "desc": "The most iconic mountain in Japan.",
     "image": "../images/mount_fuji.jpg"
   },
   {
+    "id": "3",
     "name": "Shibuya Crossing",
     "type": "Tourism",
     "desc": "The busiest crossing in the world.",
     "image": "../images/shibuya.jpg"
   },
   {
+    "id": "4",
     "name": "Kyoto – Kinkaku-ji (Golden Pavilion)",
     "type": "Tourism",
     "desc": "A golden temple reflecting in the pond.",
     "image": "../images/kinkakuji.jpg"
   },
   {
+    "id": "5",
     "name": "Okinawa Beaches",
     "type": "Tourism",
     "desc": "Beautiful tropical beaches with clear waters.",
     "image": "../images/okinawa.jpg"
   },
     {
+      "id": "6",
     "name": "Nara Park",
     "type": "Tourism",
     "desc": "Famous for friendly deer roaming freely.",
     "image": "../images/nara.jpg"
   },
   {
+    "id": "7",
     "name": "Senso-ji Temple",
     "type": "Heritage",
     "desc": "One of Tokyo's oldest temples.",
     "image": "../images/sensoji.jpg"
   },
   {
+    "id": "8",
     "name": "Fushimi Inari Shrine",
     "type": "Heritage",
     "desc": "Famous for its thousands of red gates.",
     "image": "../images/fushimi_inari.jpg"
   },
   {
+    "id": "9",
     "name": "Osaka Castle",
     "type": "Heritage",
     "desc": "A historic Japanese castle.",
     "image": "../images/osaka_castle.jpg"
   },
    {
+    "id": "10",
     "name": "Himeji Castle",
     "type": "Heritage",
     "desc": "The most beautiful surviving castle in Japan.",
     "image": "../images/himeji.jpg"
   },
   {
+    "id": "11",
     "name": "Itsukushima Shrine",
     "type": "Heritage",
     "desc": "Known for its floating red torii gate.",
     "image": "../images/itsukushima.jpg"
   },
   {
+    "id": "12",
     "name": "Shirakawa-go Village",
     "type": "Heritage",
     "desc": "Traditional thatched-roof houses in Gifu mountains.",
     "image": "../images/shirakawa.jpg"
   },
   {
+    "id": "13",
     "name": "Universal Studios Japan",
     "type": "Entertainment",
     "desc": "A major theme park in Osaka.",
     "image": "../images/universal.jpg"
   },
   {
+    "id": "14",
     "name": "Tokyo Disneyland",
     "type": "Entertainment",
     "desc": "A magical theme park in Tokyo.",
     "image": "../images/disneyland.jpg"
   },
   {
+    "id": "15",
   "name": "TeamLab Borderless",
     "type": "Entertainment",
     "desc": "A digital art museum in Tokyo with immersive light installations.",
     "image": "../images/teamlab.jpg"
   },
     {
+      "id": "16",
     "name": "Fuji-Q Highland",
     "type": "Entertainment",
     "desc": "Theme park near Mount Fuji with thrilling rides.",
     "image": "../images/fujiq.jpg"
   },
   {
+    "id": "17",
     "name": "Sanrio Puroland",
     "type": "Entertainment",
     "desc": "Hello Kitty and Sanrio character theme park.",
     "image": "../images/sanrio.jpg"
   },
   {
+    "id": "18",
     "name": "Tokyo Joypolis",
     "type": "Entertainment",
     "desc": "Indoor amusement park with VR and arcade games.",
     "image": "../images/joypolis.jpg"
   },
   {
+    "id": "19",
     "name": "Ichiran Ramen",
     "type": "Food",
     "desc": "The most famous ramen restaurant in Japan.",
     "image": "../images/ichiran.jpg"
   },
   {
+    "id": "20",
     "name": "Sushi Zanmai",
     "type": "Food",
     "desc": "A popular sushi chain.",
     "image": "../images/zanmai.jpg"
   },
   {
+    "id": "21",
     "name": "Gyukatsu Motomura",
     "type": "Food",
     "desc": "A famous restaurant in Tokyo serving crispy beef cutlet.",
     "image": "../images/gyukatsu.jpg"
   },
   {
+    "id": "22",
   "name": "Ramen Street Tokyo Station",
   "type": "Food",
   "desc": "A famous spot inside Tokyo Station with multiple ramen shops offering different flavors.",
   "image": "../images/ramen_street.jpg"
   },
   {
+    "id": "23",
     "name": "Unagi Hirokawa Kyoto",
     "type": "Food",
     "desc": "Traditional restaurant famous for grilled eel.",
     "image": "../images/unagi.jpg"
   },
   {
+    "id": "24",
     "name": "Sugita Sushi",
     "type": "Food",
     "desc": "Michelin-starred sushi restaurant in Tokyo.",
